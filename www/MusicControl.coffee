@@ -1,27 +1,30 @@
 module.exports =
   play: (cb) ->
-    @_execute "play", cb
+    @_execute "play", [], cb
 
   togglepause: (cb) ->
-    @_execute "togglepause", cb
+    @_execute "togglepause", [], cb
 
   pause: (cb) ->
-    @_execute "pause", cb
+    @_execute "pause", [], cb
 
   stop: (cb) ->
-    @_execute "stop", cb
+    @_execute "stop", [], cb
 
   previous: (cb) ->
-    @_execute "previous", cb
+    @_execute "previous", [], cb
 
   next: (cb) ->
-    @_execute "next", cb
+    @_execute "next", [], cb
 
-  _execute: (mcCmd, callback) ->
+  playTrack: (trackURI, cb) ->
+    @_execute "playTrack", [trackURI], cb
+
+  _execute: (mcCmd, mArgs, callback) ->
     cordova.exec (cb) ->
       callback(null, cb) if callback
 
     , (err) ->
       callback err
 
-    , "MusicControl", mcCmd, []
+    , "MusicControl", mcCmd, mArgs
