@@ -28,23 +28,18 @@ public class MusicControl extends CordovaPlugin {
       try {
         mMediaPlayer.setDataSource("file://"+trackURI);
       } catch (IllegalArgumentException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       } catch (IllegalStateException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       } catch (IOException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
 
       try {
         mMediaPlayer.prepare();
       } catch (IllegalStateException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       } catch (IOException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
 
